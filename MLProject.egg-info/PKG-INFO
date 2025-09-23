@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: MLProject
+Version: 0.0.1
+Author: Kartik
+Author-email: kartiknimhan9929@gmail.com
+Requires-Dist: seaborn
+Requires-Dist: numpy
+Requires-Dist: pandas
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
