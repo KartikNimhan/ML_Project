@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
 from src.components.data_transformation import DataTransformation,DataTransformationConfig
-
+from src.components.model_trainer import ModelTrainer,ModelTrainerConfig
 
 # Project root directory
 PROJECT_ROOT = r"D:\MLOPs\ML_Project"
@@ -55,10 +55,19 @@ class DataIngestion:
 
 
 if __name__ == "__main__":
+    # Step 1: Data Ingestion
     obj = DataIngestion()
-    train_data,test_data=obj.initiate_data_ingestion()
+    train_data, test_data = obj.initiate_data_ingestion()
 
-    data_transformation=DataTransformation()
-    data_transformation.initiate_data_transformation(train_data,test_data)
+    # Step 2: Data Transformation
+    data_transformation = DataTransformation()
+    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(
+        train_data, test_data
+    )
 
-    
+    # Step 3: Model Training
+    model_trainer = ModelTrainer()
+    r2_square = model_trainer.initiate_model_trainer(train_arr, test_arr)
+
+    print("Model training completed!")
+    print("R2 Score:", r2_square)
