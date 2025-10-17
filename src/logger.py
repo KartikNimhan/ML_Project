@@ -2,11 +2,14 @@ import logging
 import os
 from datetime import datetime
 
+# Define project root manually
+PROJECT_ROOT = r"D:\MLOPs\ML_Project"
+
 # Create log file name with timestamp
 LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 
-# Directory for logs
-logs_dir = os.path.join(os.getcwd(), "logs")
+# Directory for logs (always outside src, inside project root)
+logs_dir = os.path.join(PROJECT_ROOT, "logs")
 os.makedirs(logs_dir, exist_ok=True)
 
 # Full path for the log file
